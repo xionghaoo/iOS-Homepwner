@@ -14,6 +14,8 @@
 		B6190E7722B34CFF00302036 /* HomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6190E7622B34CFF00302036 /* HomepwnerTests.swift */; };
 		B6190E8222B34CFF00302036 /* HomepwnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6190E8122B34CFF00302036 /* HomepwnerUITests.swift */; };
 		B6190E9022B34E5000302036 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6190E8F22B34E5000302036 /* ItemsViewController.swift */; };
+		B6190E9222B3512E00302036 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6190E9122B3512E00302036 /* Item.swift */; };
+		B6190E9422B3759600302036 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6190E9322B3759600302036 /* ItemStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		B6190E8122B34CFF00302036 /* HomepwnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepwnerUITests.swift; sourceTree = "<group>"; };
 		B6190E8322B34CFF00302036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6190E8F22B34E5000302036 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		B6190E9122B3512E00302036 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B6190E9322B3759600302036 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				B6190E6122B34CFF00302036 /* AppDelegate.swift */,
+				B6190E9322B3759600302036 /* ItemStore.swift */,
 				B6190E6522B34CFF00302036 /* Main.storyboard */,
 				B6190E6822B34CFF00302036 /* Assets.xcassets */,
 				B6190E6A22B34CFF00302036 /* LaunchScreen.storyboard */,
 				B6190E6D22B34CFF00302036 /* Info.plist */,
 				B6190E8F22B34E5000302036 /* ItemsViewController.swift */,
+				B6190E9122B3512E00302036 /* Item.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -257,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6190E9022B34E5000302036 /* ItemsViewController.swift in Sources */,
+				B6190E9222B3512E00302036 /* Item.swift in Sources */,
+				B6190E9422B3759600302036 /* ItemStore.swift in Sources */,
 				B6190E6222B34CFF00302036 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
