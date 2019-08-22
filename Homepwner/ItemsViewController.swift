@@ -23,7 +23,10 @@ class ItemsViewController: UITableViewController {
 //        tableView.scrollIndicatorInsets = insets
     
 //        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 100
+//        tableView.estimatedRowHeight = 65
+        
+        // 需要指定高度
+        tableView.rowHeight = 65
         
     }
     
