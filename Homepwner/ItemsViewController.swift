@@ -12,6 +12,12 @@ class ItemsViewController: UITableViewController {
     
     var itemStore: ItemStore!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +28,20 @@ class ItemsViewController: UITableViewController {
 //        tableView.contentInset = insets
 //        tableView.scrollIndicatorInsets = insets
     
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 65
+        // tableview默认高度
+        tableView.rowHeight = UITableView.automaticDimension
+        // 避免table view加载时计算高度，延迟到滑动时计算
+        tableView.estimatedRowHeight = 65
         
         // 需要指定高度
-        tableView.rowHeight = 65
+//        tableView.rowHeight = 65
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,21 +85,12 @@ class ItemsViewController: UITableViewController {
         cell.value.text = "$\(item.valueInDollars)"
         cell.serialNumber.text = item.serialNumber
         
+        cell.backgroundColor = item.valueInDollars < 50 ? #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1) : #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        
         return cell
     }
     
-    @IBAction func toggleEditMode(_ sender: UIButton) {
-        if isEditing {
-            sender.setTitle("Edit", for: .normal)
-            setEditing(false, animated: true)
-        } else {
-            sender.setTitle("Done", for: .normal)
-            setEditing(true, animated: true)
-        }
-    }
-    
-    @IBAction func addNewItem(_ sender: UIButton) {
-        
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem()
         
         // index(of:) swift4.2已经弃用
@@ -93,11 +98,19 @@ class ItemsViewController: UITableViewController {
             let indexPath = IndexPath(row: index, section: 0)
             tableView.insertRows(at: [indexPath], with: .automatic)
         }
-        
-//        let lastRow = tableView.numberOfRows(inSection: 0)
-//        let indexPath = IndexPath(row: lastRow, section: 0)
-        
-//        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowItem"?:
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
+            }
+        default:
+            preconditionFailure("Unexcepted segue identifier")
+        }
     }
     
 }

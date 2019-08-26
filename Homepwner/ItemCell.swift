@@ -14,4 +14,11 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var serialNumber: UILabel!
     @IBOutlet weak var value: UILabel!
     
+    // 响应系统字体大小变化
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        title.adjustsFontForContentSizeCategory = true
+        serialNumber.adjustsFontForContentSizeCategory = true
+        value.adjustsFontForContentSizeCategory = true
+    }
 }
