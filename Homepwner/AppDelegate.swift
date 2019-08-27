@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         itemController.itemStore = itemStore
         
+        itemController.imageStore = ImageStore()
+        
         return true
     }
 
